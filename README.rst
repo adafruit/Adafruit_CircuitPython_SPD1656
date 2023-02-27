@@ -46,8 +46,6 @@ This supports the common 4" and 5.65" ACeP displays.
 
 Installing from PyPI
 =====================
-.. note:: This library is not available on PyPI yet. Install documentation is included
-   as a standard element. Stay tuned for PyPI availability!
 
 On supported GNU/Linux systems like the Raspberry Pi, you can install the driver locally `from
 PyPI <https://pypi.org/project/adafruit-circuitpython-spd1656/>`_.

@@ -105,5 +105,5 @@ class SPD1656(displayio.EPaperDisplay):
             busy_state=False,
             write_black_ram_command=0x10,
             refresh_display_command=0x12,
-            acep=True
+            advanced_color_epaper=True
         )
