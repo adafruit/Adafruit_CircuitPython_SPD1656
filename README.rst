@@ -21,8 +21,9 @@ Introduction
     :target: https://github.com/psf/black
     :alt: Code Style: Black
 
-Driver for SPD1656 driven ACeP (7-color) e-paper displays
+Driver for SPD1656 driven ACeP (7-color) e-paper displays.
 
+Please note that we do not have Blinka support for this yet. So it won't work with a Raspberry Pi.
 
 Dependencies
 =============
@@ -36,16 +37,17 @@ This is easily achieved by downloading
 or individual libraries can be installed using
 `circup <https://github.com/adafruit/circup>`_.
 
-.. todo:: Describe the Adafruit product this library works with. For PCBs, you can also add the
-image from the assets folder in the PCB's GitHub repo.
+This supports the common 4" and 5.65" ACeP displays.
 
-`Purchase one from the Adafruit shop <http://www.adafruit.com/products/>`_
+* [Waveshare 4"](https://www.waveshare.com/4.01inch-e-paper-hat-f.htm)
+* [Waveshare 5.65"](https://www.waveshare.com/5.65inch-e-paper-module-f.htm)
+* [Pimoroni 5.7"](https://shop.pimoroni.com/products/inky-impression-5-7) (Likely the same as 5.65".)
+* [Pimoroni 4"](https://shop.pimoroni.com/products/inky-impression-4)
+
 Installing from PyPI
 =====================
 .. note:: This library is not available on PyPI yet. Install documentation is included
    as a standard element. Stay tuned for PyPI availability!
-
-.. todo:: Remove the above note if PyPI version is/will be available at time of release.
 
 On supported GNU/Linux systems like the Raspberry Pi, you can install the driver locally `from
 PyPI <https://pypi.org/project/adafruit-circuitpython-spd1656/>`_.
@@ -96,8 +98,53 @@ Or the following command to update an existing version:
 Usage Example
 =============
 
-.. todo:: Add a quick, simple example. It and other examples should live in the
-examples folder and be included in docs/examples.rst.
+.. code-block:: python
+
+    # SPDX-FileCopyrightText: Copyright (c) 2023 Scott Shawcroft for Adafruit Industries
+    # SPDX-FileCopyrightText: Copyright (c) 2021 Melissa LeBlanc-Williams for Adafruit Industries
+    #
+    # SPDX-License-Identifier: Unlicense
+
+    """Simple test script for 5.6" 600x448 7-color ACeP display.
+      """
+    # pylint: disable=no-member
+
+    import time
+    import board
+    import displayio
+    import adafruit_spd1656
+
+    displayio.release_displays()
+
+    # This pinout works on a Feather RP2040 and may need to be altered for other boards.
+    spi = board.SPI()  # Uses SCK and MOSI
+    epd_cs = board.D9
+    epd_dc = board.D10
+    epd_reset = board.D11
+    epd_busy = board.D12
+
+    display_bus = displayio.FourWire(
+        spi, command=epd_dc, chip_select=epd_cs, reset=epd_reset, baudrate=1000000
+    )
+
+    display = adafruit_spd1656.SPD1656(
+        display_bus, width=600, height=448, busy_pin=epd_busy
+    )
+
+    g = displayio.Group()
+
+    fn = "/display-ruler-720p.bmp"
+
+    with open(fn, "rb") as f:
+        pic = displayio.OnDiskBitmap(f)
+        t = displayio.TileGrid(pic, pixel_shader=pic.pixel_shader)
+        g.append(t)
+
+        display.show(g)
+
+        display.refresh()
+
+        time.sleep(120)
 
 Documentation
 =============

@@ -24,14 +24,13 @@ Table of Contents
 .. toctree::
     :caption: Tutorials
 
-.. todo:: Add any Learn guide links here. If there are none, then simply delete this todo and leave
-    the toctree above for use later.
-
 .. toctree::
     :caption: Related Products
 
-.. todo:: Add any product links here. If there are none, then simply delete this todo and leave
-    the toctree above for use later.
+    Pimoroni 4" <https://shop.pimoroni.com/products/inky-impression-4>
+    Pimoroni 5.7" <https://shop.pimoroni.com/products/inky-impression-5-7>
+    Waveshare 4" <https://www.waveshare.com/4.01inch-e-paper-hat-f.htm>
+    Waveshare 5.65" <https://www.waveshare.com/5.65inch-e-paper-module-f.htm>
 
 .. toctree::
     :caption: Other Links
