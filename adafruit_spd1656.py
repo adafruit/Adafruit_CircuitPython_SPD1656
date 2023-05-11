@@ -46,6 +46,7 @@ _STOP_SEQUENCE = b"\x02\x01\x00" b"\x07\x01\xA5"  # Power off then deep sleep
 
 # Datasheet is here: https://www.waveshare.com/w/upload/b/bf/SPD1656_1.1.pdf
 
+
 # pylint: disable=too-few-public-methods
 class SPD1656(displayio.EPaperDisplay):
     r"""SPD1656 display driver
