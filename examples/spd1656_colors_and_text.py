@@ -55,7 +55,7 @@ lbl.anchor_point = (0.5, 0.5)
 lbl.anchored_position = (display.width // 2, display.height // 2)
 g.append(lbl)
 
-display.show(g)
+display.root_group = g
 display.refresh()
 
 while True:
