@@ -11,6 +11,7 @@ import time
 import board
 import displayio
 import adafruit_spd1656
+import fourwire
 
 displayio.release_displays()
 
@@ -21,7 +22,7 @@ epd_dc = board.D10
 epd_reset = board.D11
 epd_busy = board.D12
 
-display_bus = displayio.FourWire(
+display_bus = fourwire.FourWire(
     spi, command=epd_dc, chip_select=epd_cs, reset=epd_reset, baudrate=1000000
 )
 
