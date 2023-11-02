@@ -56,7 +56,7 @@ for i in range(7):
 tg = displayio.TileGrid(bitmap=bmp, pixel_shader=p)
 g.append(tg)
 
-display.show(g)
+display.root_group = g
 
 display.refresh()
 
