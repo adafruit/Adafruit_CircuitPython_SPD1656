@@ -11,8 +11,8 @@
 import time
 import board
 import displayio
-import adafruit_spd1656
 import fourwire
+import adafruit_spd1656
 
 
 displayio.release_displays()

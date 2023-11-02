@@ -13,8 +13,8 @@ import displayio
 import terminalio
 import bitmaptools
 from adafruit_display_text.bitmap_label import Label
-import adafruit_spd1656
 import fourwire
+import adafruit_spd1656
 
 
 displayio.release_displays()

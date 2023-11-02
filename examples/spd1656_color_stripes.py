@@ -10,8 +10,8 @@ Fill the screen with striped rows, one for each possible color.
 import board
 import displayio
 import bitmaptools
-import adafruit_spd1656
 import fourwire
+import adafruit_spd1656
 
 
 displayio.release_displays()
