@@ -23,7 +23,7 @@ Implementation Notes
 
 import struct
 
-import displayio
+import epaperdisplay
 
 __version__ = "0.0.0+auto.0"
 __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_SPD1656.git"
@@ -48,7 +48,7 @@ _STOP_SEQUENCE = b"\x02\x01\x00" b"\x07\x01\xA5"  # Power off then deep sleep
 
 
 # pylint: disable=too-few-public-methods
-class SPD1656(displayio.EPaperDisplay):
+class SPD1656(epaperdisplay.EPaperDisplay):
     r"""SPD1656 display driver
 
     :param bus: The data bus the display is on

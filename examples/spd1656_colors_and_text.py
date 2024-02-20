@@ -13,7 +13,9 @@ import displayio
 import terminalio
 import bitmaptools
 from adafruit_display_text.bitmap_label import Label
+import fourwire
 import adafruit_spd1656
+
 
 displayio.release_displays()
 
@@ -24,7 +26,7 @@ epd_dc = board.D10
 epd_reset = board.D11
 epd_busy = board.D12
 
-display_bus = displayio.FourWire(
+display_bus = fourwire.FourWire(
     spi, command=epd_dc, chip_select=epd_cs, reset=epd_reset, baudrate=1000000
 )
 
@@ -55,7 +57,7 @@ lbl.anchor_point = (0.5, 0.5)
 lbl.anchored_position = (display.width // 2, display.height // 2)
 g.append(lbl)
 
-display.show(g)
+display.root_group = g
 display.refresh()
 
 while True:

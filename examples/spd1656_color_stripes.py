@@ -10,7 +10,9 @@ Fill the screen with striped rows, one for each possible color.
 import board
 import displayio
 import bitmaptools
+import fourwire
 import adafruit_spd1656
+
 
 displayio.release_displays()
 
@@ -21,7 +23,7 @@ epd_dc = board.D10
 epd_reset = board.D11
 epd_busy = board.D12
 
-display_bus = displayio.FourWire(
+display_bus = fourwire.FourWire(
     spi, command=epd_dc, chip_select=epd_cs, reset=epd_reset, baudrate=1000000
 )
 
@@ -56,7 +58,7 @@ for i in range(7):
 tg = displayio.TileGrid(bitmap=bmp, pixel_shader=p)
 g.append(tg)
 
-display.show(g)
+display.root_group = g
 
 display.refresh()
 
