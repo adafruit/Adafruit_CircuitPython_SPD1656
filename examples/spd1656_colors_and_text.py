@@ -6,16 +6,15 @@
 Draw a border and screen filled with color and layer text on top
 of it.
 """
-# pylint: disable=no-member
 
+import bitmaptools
 import board
 import displayio
-import terminalio
-import bitmaptools
-from adafruit_display_text.bitmap_label import Label
 import fourwire
-import adafruit_spd1656
+import terminalio
+from adafruit_display_text.bitmap_label import Label
 
+import adafruit_spd1656
 
 displayio.release_displays()
 
@@ -30,9 +29,7 @@ display_bus = fourwire.FourWire(
     spi, command=epd_dc, chip_select=epd_cs, reset=epd_reset, baudrate=1000000
 )
 
-display = adafruit_spd1656.SPD1656(
-    display_bus, width=600, height=448, busy_pin=epd_busy
-)
+display = adafruit_spd1656.SPD1656(display_bus, width=600, height=448, busy_pin=epd_busy)
 
 g = displayio.Group()
 

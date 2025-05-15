@@ -5,14 +5,13 @@
 """Stripes test script for 5.6" 600x448 7-color ACeP display.
 Fill the screen with striped rows, one for each possible color.
 """
-# pylint: disable=no-member
 
+import bitmaptools
 import board
 import displayio
-import bitmaptools
 import fourwire
-import adafruit_spd1656
 
+import adafruit_spd1656
 
 displayio.release_displays()
 
@@ -27,9 +26,7 @@ display_bus = fourwire.FourWire(
     spi, command=epd_dc, chip_select=epd_cs, reset=epd_reset, baudrate=1000000
 )
 
-display = adafruit_spd1656.SPD1656(
-    display_bus, width=600, height=448, busy_pin=epd_busy
-)
+display = adafruit_spd1656.SPD1656(display_bus, width=600, height=448, busy_pin=epd_busy)
 
 g = displayio.Group()
 
