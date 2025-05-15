@@ -42,12 +42,11 @@ _START_SEQUENCE = (
     b"\x04\x80\xc8"  # power on and wait 10 ms
 )
 
-_STOP_SEQUENCE = b"\x02\x01\x00" b"\x07\x01\xA5"  # Power off then deep sleep
+_STOP_SEQUENCE = b"\x02\x01\x00" b"\x07\x01\xa5"  # Power off then deep sleep
 
 # Datasheet is here: https://www.waveshare.com/w/upload/b/bf/SPD1656_1.1.pdf
 
 
-# pylint: disable=too-few-public-methods
 class SPD1656(epaperdisplay.EPaperDisplay):
     r"""SPD1656 display driver
 
@@ -106,5 +105,5 @@ class SPD1656(epaperdisplay.EPaperDisplay):
             busy_state=False,
             write_black_ram_command=0x10,
             refresh_display_command=0x12,
-            advanced_color_epaper=True
+            advanced_color_epaper=True,
         )
