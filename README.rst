@@ -109,6 +109,7 @@ Usage Example
     import time
     import board
     import displayio
+    import fourwire
     import adafruit_spd1656
 
     displayio.release_displays()
@@ -130,18 +131,16 @@ Usage Example
 
     g = displayio.Group()
 
-    fn = "/display-ruler-720p.bmp"
+    pic = displayio.OnDiskBitmap("/display-ruler-720p.bmp")
+    t = displayio.TileGrid(pic, pixel_shader=pic.pixel_shader)
+    g.append(t)
 
-    with open(fn, "rb") as f:
-        pic = displayio.OnDiskBitmap(f)
-        t = displayio.TileGrid(pic, pixel_shader=pic.pixel_shader)
-        g.append(t)
+    display.root_group = g
 
-        display.root_group = g
+    display.refresh()
 
-        display.refresh()
+    time.sleep(120)
 
-        time.sleep(120)
 
 Documentation
 =============
