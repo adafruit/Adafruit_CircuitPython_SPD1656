@@ -42,7 +42,7 @@ _START_SEQUENCE = (
     b"\x04\x80\xc8"  # power on and wait 10 ms
 )
 
-_STOP_SEQUENCE = b"\x02\x01\x00" b"\x07\x01\xa5"  # Power off then deep sleep
+_STOP_SEQUENCE = b"\x02\x01\x00\x07\x01\xa5"  # Power off then deep sleep
 
 # Datasheet is here: https://www.waveshare.com/w/upload/b/bf/SPD1656_1.1.pdf
 
